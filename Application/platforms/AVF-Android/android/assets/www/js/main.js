@@ -9,7 +9,11 @@ $(document).on('pageinit', function(){
 		
 		var tag = "kittens"; //this could also be based on a form field
 		var url = "https://api.instagram.com/v1/media/popular?client_id=67cce2a91aff4039b40cce1214bb49bd";
+<<<<<<< HEAD
 		$.getJSON(url, function(data) {
+=======
+		$.getJSON('xhr/data.json', function(data) {
+>>>>>>> master
         	for (var i in data.entries) {
         		$('#list').append('<ul>' + data.entries[i].name + '</ul>');
         		$('#list ul').append('<li>' + data.entries[i].date + '</li>');
