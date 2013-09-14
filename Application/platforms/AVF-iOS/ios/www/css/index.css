@@ -1,3 +1,7 @@
 /* AVF 1309 - iOS Platform
 CSS Style sheet
 */
+
+labelerror{display:block;margin:10px 0; color:#cc0000;}
+
+#images .ui-grid-a div{text-align:center;}
