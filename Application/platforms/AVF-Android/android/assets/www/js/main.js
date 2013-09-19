@@ -24,8 +24,9 @@ $(document).on('pageinit', function(){
         	success: function(info) {
         	    console.log(info);
         	    
-        	    for (var i = 0; i < 5; i++) {
-                    $("#instaList").append("<li><img src='" + info.data[i].images.standard_resolution.url + "' class='images' alt='" + info.data[i].user.id + "' /><h4>" + info.data[i].user.full_name + ", <em>(" + info.data[i].user.username +")</em></h4></li>");
+        	    for (var i = 0; i < 6; i++) {
+                    $("#instaList").append("<li id='i'" + i + "' class='images'><img src='" + info.data[i].images.standard_resolution.url + "' alt='" + info.data[i].user.id + "' /><h4>" + info.data[i].user.full_name + ", <em>(" + info.data[i].user.username +")</em></h4></li>");
+					console.log("i" + i);
 				} // end for loop
 				
         	} // end success function
