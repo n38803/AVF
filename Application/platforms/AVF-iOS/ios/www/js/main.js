@@ -102,7 +102,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 
 
-//-[Alert Functions]----------------------------------------------------------------------  	
+//-[ Alert Library ]----------------------------------------------------------------------  	
     function soundDismiss(){
     
     	console.log("Notification Beep");	
@@ -116,17 +116,15 @@ document.addEventListener("deviceready", onDeviceReady, false);
  
  
   	
-//-[Native Function Variables]------------------------------------------------------------
-	var camera = function() {
-	//load camera immediately? load buttons first?	
-}; // end camera function
-	var compass = function() {
-	//check for connection? load data?	
-};// end compass function
-	var contacts = function() {
-	//do something	
-};// end contacts function  	
+//-[ Native Library - Variables ]---------------------------------------------------------
 
+
+	
+	
+	
+	
+	
+	
 
 	var connections = function() {
 		
@@ -163,24 +161,38 @@ document.addEventListener("deviceready", onDeviceReady, false);
        	navigator.notification.alert('You have enabled Vibration!', vibrateDismiss, 'ALERT!', 'Dismiss'); 
        	navigator.notification.vibrate(2000);
 	
-	};// end vibration notifications function  
+	};// end vibration notifications function 
+                    	
+	var loadInfo = function () {
+		$("#d-type").html(
+			"<li>Device Name: <em>" + device.name + "</em></li>" +
+			"<li>Platform Type: <em>" + device.platform + "</em></li>" +
+			"<li>Device UUID: <em>" + device.uuid + "</em></li>" +
+			"<li>Version Info: <em>" + device.version + "</em></li>"
+			); //end html edit
+	
+	};  // end phoneinfo                  	    
 	
 	
-	// ON DEVICE READY FUNCTION
+
+
+
+
+	// onDeviceReady - PhoneGap check
 	function onDeviceReady() {
 
 	console.log("PhoneGap Device Ready!");
 	
 	
-
-	// Camera Function
+	// Device Information Function
+	$("#deviceInfo").on("click", loadInfo);
+	
+	// Connections Function
 	$("#testConnection").on("click", connections);
 
 	// Compass Function
-	$("#compass").on("click", compass);
-	
-	// Contacts Function
-	$("#contacts").on("click", compass);
+	$("#compassInfo").on("click", compass);
+
 	
 	// Notification [sound] Function
 	$("#soundOn").on("click", beep);

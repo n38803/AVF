@@ -33,8 +33,8 @@
 			
 			<ul data-role="listview" data-inset="true">
 				<li data-role="list-divider" data-theme="a">Application Features</li>
-				<li><a href="#error">Contacts</a></li>
-				<li><a href="#error">Camera</a></li>
+				<li><a href="#compass">Compass</a></li>
+				<li><a href="#device">Device Information</a></li>
 				<li><a href="#connections">Network Connections</a></li>
 				<li><a href="#notifications">Notifications</a></li>
 				<li><a href="#error">GPS</a></li>	
@@ -69,6 +69,62 @@
 		</section>
 		
 	</div>
+	
+	<div data-role="page" id="compass" data-add-back-btn="true">
+		
+		<header data-role="header" data-position="fixed" data-id="home">
+		
+			<h1>AVF Application - Android</h1>
+					
+		</header>
+		
+		<section data-role="content" data-theme="a">
+			<h3>Connection Settings</h3>
+			<a href="#" id="compassInfo" data-role="button" data-transition="fade">Generate Device Information</a>
+			<ul id="d-type"><li>Click to generate device information </li></ul>
+			
+		</section>
+		
+		<footer data-role="footer" data-position="fixed" data-id="home">
+			<section data-role="navbar">
+				<ul>
+					<li><a href="#home" data-icon="home" data-posicon="top">Home</a></li>
+					<li><a href="#notifications" data-icon="info" data-posicon="top">Notifcations</a></li>
+					<li><a href="#error" data-icon="grid" data-posicon="top">Share</a></li>
+					<li><a href="#error" data-icon="edit" data-posicon="top" >Feedback</a></li>
+				</ul>
+			</section>
+		</footer>
+		
+	</div>
+	
+	<div data-role="page" id="device" data-add-back-btn="true">
+		
+		<header data-role="header" data-position="fixed" data-id="home">
+		
+			<h1>AVF Application - Android</h1>
+					
+		</header>
+		
+		<section data-role="content" data-theme="a">
+			<h3>Connection Settings</h3>
+			<a href="#" id="deviceInfo" data-role="button" data-transition="fade">Generate Device Information</a>
+			<ul id="d-type"><li>Click to generate device information </li></ul>
+			
+		</section>
+		
+		<footer data-role="footer" data-position="fixed" data-id="home">
+			<section data-role="navbar">
+				<ul>
+					<li><a href="#home" data-icon="home" data-posicon="top">Home</a></li>
+					<li><a href="#notifications" data-icon="info" data-posicon="top">Notifcations</a></li>
+					<li><a href="#error" data-icon="grid" data-posicon="top">Share</a></li>
+					<li><a href="#error" data-icon="edit" data-posicon="top" >Feedback</a></li>
+				</ul>
+			</section>
+		</footer>
+		
+	</div>	
 	
 	<div data-role="page" id="connections" data-add-back-btn="true">
 		
