@@ -1,10 +1,14 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 // JQUERY PAGE INIT [APIs]
 $(document).on('pageinit', function(){
 
 console.log("JQUERY Page Init");
 
 //-[Data APIs]----------------------------------------------------------------------------
+<<<<<<< HEAD
 	
 	
 	var instaSubmit = function(){
@@ -15,8 +19,20 @@ console.log("JQUERY Page Init");
 	
 	var instaPopulate = function(){
 		
+=======
+
+
+	var instaSubmit = function(){
+
+		alert("Function Currently Unavailable - Please make another selection");
+
+  	}; // end instagram form submit	
+
+	var instaPopulate = function(){
+
+>>>>>>> master
 		alert("Populating Instagram Results...");
-		
+
 		// $('#instaList').remove();
 
 	    $.ajax({
@@ -30,13 +46,14 @@ console.log("JQUERY Page Init");
                     $("#instaList").append("<li id='i'" + i + "' class='images'><img src='" + info.data[i].images.standard_resolution.url + "' alt='" + info.data[i].user.id + "' /><h4>" + info.data[i].user.full_name + ", <em>(" + info.data[i].user.username +")</em></h4></li>");
 					console.log("i" + i);
 				} // end for loop
-				
+
         	} // end success function
         	
         }); // end ajax call
     	
   	
   	}; // end instagram populate 
+<<<<<<< HEAD
 	
 	var theSubmit = function(){
 		
@@ -44,12 +61,21 @@ console.log("JQUERY Page Init");
 		
   	}; // end thesaurus form submit
 	
+=======
+
+	var theSubmit = function(){
+
+		alert("Function Currently Unavailable - Please make another selection");
+
+  	}; // end thesaurus form submit
+
+>>>>>>> master
 	var thesPopulate = function(){
 		alert("Loading Request...");
-		
+
 		// $('#thesList').remove();
 		var tag = "Development";
-		
+
 	    $.ajax({
         	type: "GET",
         	dataType: "jsonp",
@@ -62,7 +88,7 @@ console.log("JQUERY Page Init");
         	    for (var i = 0; i < data.noun.syn.length; i++) {
                     $("#thesList").append("<li>" + data.noun.syn[i] + "</li>");
 				} // end for loop
-				
+
         	} // end success function
         	
         }); // end ajax call
@@ -74,19 +100,34 @@ console.log("JQUERY Page Init");
 
 	// Instagram Search Form
 	$('#instaSubmit').on("click", instaSubmit);
+<<<<<<< HEAD
 	
 	// Instagram Auto Populate by User Prompt
 	$('#instaPopulate').on("click", instaPopulate);
 	
+=======
+
+	// Instagram Auto Populate by User Prompt
+	$('#instaPopulate').on("click", instaPopulate);
+
+>>>>>>> master
 
 
 	// Thesaurus Search Form
 	$('#thesSubmit').on("click", theSubmit);
+<<<<<<< HEAD
 	
 	// Thesaurus Results by User Prompt
 	$('#thesPopulate').on("click", thesPopulate);
 	
 	
+=======
+
+	// Thesaurus Results by User Prompt
+	$('#thesPopulate').on("click", thesPopulate);
+
+
+>>>>>>> master
 }); // End JQUERY Page Init
 
 
@@ -117,11 +158,19 @@ document.addEventListener("deviceready", onDeviceReady, false);
     	console.log("Notification Vibrate");
 
     }; // end sound dismiss 
+<<<<<<< HEAD
 	
 	function compassSuccess(direction) {
     	$('#directions').html("You Are Heading: " + direction);
     }; // end success function
 	    
+=======
+
+	function compassSuccess(direction) {
+    	$('#directions').html("You Are Heading: " + direction);
+    }; // end success function
+
+>>>>>>> master
 	function compassError() {
        	alert('onError!');
     }; // end error function	
@@ -131,10 +180,17 @@ document.addEventListener("deviceready", onDeviceReady, false);
 //-[ Native Library - Variables ]---------------------------------------------------------
 
 	var sCompass = function() {
+<<<<<<< HEAD
 	
 		var options = { frequency: 3000 };
         watchID = navigator.compass.watchHeading(compassSuccess, compassError, options);
 	
+=======
+
+		var options = { frequency: 3000 };
+        watchID = navigator.compass.watchHeading(compassSuccess, compassError, options);
+
+>>>>>>> master
 	};
 
 	var eCompass = function() {
@@ -145,10 +201,87 @@ document.addEventListener("deviceready", onDeviceReady, false);
 	};
 
 	var connections = function() {
+<<<<<<< HEAD
 		
 		alert('Verifying Connection Settings...');	
 		
 		var networkState = navigator.network.connection.type;
+=======
+
+		alert('Verifying Connection Settings...');	
+
+		var networkState = navigator.network.connection.type;
+
+    	var states = {};
+    	states[Connection.UNKNOWN]  = 'Unknown connection';
+    	states[Connection.ETHERNET] = 'Ethernet connection';
+    	states[Connection.WIFI]     = 'WiFi connection';
+    	states[Connection.CELL_2G]  = 'Cell 2G connection';
+    	states[Connection.CELL_3G]  = 'Cell 3G connection';
+    	states[Connection.CELL_4G]  = 'Cell 4G connection';
+    	states[Connection.NONE]     = 'No network connection';
+
+		$("#c-type").html("Current Connection: <em>" + states[networkState] + "</em>");
+
+	}; // end connections function
+
+	var beep = function() {
+
+		console.log("Sound Notification");
+       	
+       	navigator.notification.alert('You have enabled Sound Notifications!', soundDismiss, 'ALERT!', 'Dismiss'); 
+		navigator.notification.beep(3);
+
+	};// end sound notifications function 
+
+	var vibrate = function() {
+
+		console.log("Vibrate Notification");
+       	
+       	navigator.notification.alert('You have enabled Vibration!', vibrateDismiss, 'ALERT!', 'Dismiss'); 
+       	navigator.notification.vibrate(2000);
+
+	};// end vibration notifications function 
+                    	
+	var loadInfo = function () {
+		$("#d-type").html(
+			"<li>Device Name: <em>" + device.name + "</em></li>" +
+			"<li>Platform Type: <em>" + device.platform + "</em></li>" +
+			"<li>Device UUID: <em>" + device.uuid + "</em></li>" +
+			"<li>Version Info: <em>" + device.version + "</em></li>"
+			); //end html edit
+
+	};  // end phoneinfo                  	    
+
+
+
+
+
+
+	// onDeviceReady - PhoneGap check
+	function onDeviceReady() {
+
+	console.log("PhoneGap Device Ready!");
+
+
+	// Device Information Function
+	$("#deviceInfo").on("click", loadInfo);
+
+	// Connections Function
+	$("#testConnection").on("click", connections);
+
+	// Start Compass Function
+	$("#startCompass").on("click", sCompass);
+
+	// End Compass Function
+	$("#endCompass").on("click", eCompass);
+
+	// Notification [sound] Function
+	$("#soundOn").on("click", beep);
+
+	// Notification [vibrate] Function
+	$("#vibrateOn").on("click", vibrate);
+>>>>>>> master
 
     	var states = {};
     	states[Connection.UNKNOWN]  = 'Unknown connection';
@@ -163,6 +296,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 	
 	}; // end connections function
 
+<<<<<<< HEAD
 	var beep = function() {
 		
 		console.log("Sound Notification");
@@ -222,4 +356,6 @@ document.addEventListener("deviceready", onDeviceReady, false);
 	
 	
 	
+=======
+>>>>>>> master
 }; // END PHONEGAP DEVICE READY
