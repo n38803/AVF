@@ -22,7 +22,7 @@
 
 /*
 * Shaun Thompson
-* AVF 1309 - iOS CSS
+* AVF 1309 - Android CSS
 */
 
 img { max-width: 100%; }
@@ -36,14 +36,6 @@ li#i5 {
   margin-right: 0;
 }
 
-@media screen and (max-width: 600px) {
-  .header,
-  .body,
-  .footer {
-    float: none;
-    width: auto;
-  }
-}
 
 @media screen and (max-width: 400px) {
   .images,
@@ -55,6 +47,7 @@ li#i5 {
     margin-right: 0;
   }
 }
+
 
 @media screen and (min-width: 1300px) {
   .images,
