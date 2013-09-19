@@ -1,5 +1,5 @@
 
-// JQUERY PAGE INIT [API included]
+// JQUERY PAGE INIT [APIs]
 $(document).on('pageinit', function(){
 
 console.log("JQUERY Page Init");
@@ -105,14 +105,12 @@ document.addEventListener("deviceready", onDeviceReady, false);
 //-[Alert Functions]----------------------------------------------------------------------  	
     function soundDismiss(){
     
-    	console.log("Notification Beep");
-    	navigator.notification.beep(3);
+    	console.log("Notification Beep");	
 
     }; // end sound dismiss  
     function vibrateDismiss(){
     
     	console.log("Notification Vibrate");
-    	navigator.notification.vibrate(2000);
 
     }; // end sound dismiss 	
  
@@ -130,19 +128,40 @@ document.addEventListener("deviceready", onDeviceReady, false);
 };// end contacts function  	
 
 
-	var soundOn = function() {
+	var connections = function() {
+		
+		alert('Verifying Connection Settings...');	
+	
+		var networkState = navigator.network.connection.type;
+
+    	var states = {};
+    	states[Connection.UNKNOWN]  = 'Unknown connection';
+    	states[Connection.ETHERNET] = 'Ethernet connection';
+    	states[Connection.WIFI]     = 'WiFi connection';
+    	states[Connection.CELL_2G]  = 'Cell 2G connection';
+    	states[Connection.CELL_3G]  = 'Cell 3G connection';
+    	states[Connection.CELL_4G]  = 'Cell 4G connection';
+    	states[Connection.NONE]     = 'No network connection';
+
+		$("#c-type").html("Current Connection: <em>" + states[networkState] + "</em>");
+	
+	}; // end connections function
+
+	var beep = function() {
 		
 		console.log("Sound Notification");
        	
        	navigator.notification.alert('You have enabled Sound Notifications!', soundDismiss, 'ALERT!', 'Dismiss'); 
-	
+		navigator.notification.beep(3);
+		
 	};// end sound notifications function 
 	
-	var vibrateOn = function() {
+	var vibrate = function() {
 		
 		console.log("Vibrate Notification");
        	
        	navigator.notification.alert('You have enabled Vibration!', vibrateDismiss, 'ALERT!', 'Dismiss'); 
+       	navigator.notification.vibrate(2000);
 	
 	};// end vibration notifications function  
 	
@@ -155,7 +174,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 	
 
 	// Camera Function
-	$("#camera").on("click", camera);
+	$("#testConnection").on("click", connections);
 
 	// Compass Function
 	$("#compass").on("click", compass);
@@ -164,10 +183,10 @@ document.addEventListener("deviceready", onDeviceReady, false);
 	$("#contacts").on("click", compass);
 	
 	// Notification [sound] Function
-	$('#soundOn').on("click", soundOn);
+	$("#soundOn").on("click", beep);
 	
 	// Notification [vibrate] Function
-	$("#vibrateOn").on("click", vibrateOn);
+	$("#vibrateOn").on("click", vibrate);
 	
 	
 	

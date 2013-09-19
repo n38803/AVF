@@ -3,7 +3,7 @@
 <html>
 	<head>
 		
-		<title>AVF App - [iOS Platform]</title>
+		<title>AVF App - [Android Platform]</title>
 		
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
@@ -11,11 +11,8 @@
 		
 		<script src="js/jquery-1.9.1.min.js"></script>
 		<script src="js/jquery.mobile-1.3.2.min.js"></script>
-		
-		
-		<script type="text/javascript" src="cordova.js"></script>
-		<script type="text/javascript" src="cordova_plugin.js"></script>
-		<script type="text/javascript" src="phonegap.js"></script>
+
+
 	
 	</head>
 	
@@ -28,7 +25,7 @@
 		
 			<h1>Shaun Thompson</h1>
 			<h2>AVF - 1309</h2>
-			<h3>iOS Application Platform</h3>
+			<h3>Android Application Platform</h3>
 				
 		</section>
 		
@@ -38,7 +35,7 @@
 				<li data-role="list-divider" data-theme="a">Application Features</li>
 				<li><a href="#error">Contacts</a></li>
 				<li><a href="#error">Camera</a></li>
-				<li><a href="#error">Network Connections</a></li>
+				<li><a href="#connections">Network Connections</a></li>
 				<li><a href="#notifications">Notifications</a></li>
 				<li><a href="#error">GPS</a></li>	
 			</ul>
@@ -70,6 +67,34 @@
 				</ul>
 			</div>
 		</section>
+		
+	</div>
+	
+	<div data-role="page" id="connections" data-add-back-btn="true">
+		
+		<header data-role="header" data-position="fixed" data-id="home">
+		
+			<h1>AVF Application - Android</h1>
+					
+		</header>
+		
+		<section data-role="content" data-theme="a">
+			<h3>Connection Settings</h3>
+			<a href="#" id="testConnection" data-role="button" data-transition="fade">Test Connection</a>
+			<ul><li id="c-type">Current Connection: </li></ul>
+			
+		</section>
+		
+		<footer data-role="footer" data-position="fixed" data-id="home">
+			<section data-role="navbar">
+				<ul>
+					<li><a href="#home" data-icon="home" data-posicon="top">Home</a></li>
+					<li><a href="#notifications" data-icon="info" data-posicon="top" class="ui-btn-active">Notifcations</a></li>
+					<li><a href="#error" data-icon="grid" data-posicon="top">Share</a></li>
+					<li><a href="#error" data-icon="edit" data-posicon="top" >Feedback</a></li>
+				</ul>
+			</section>
+		</footer>
 		
 	</div>
 	
@@ -223,11 +248,13 @@
 		</div>
 		
 	</div>
-		
+	
+		<script type="text/javascript" src="cordova.js"></script>
+		<script type="text/javascript" src="cordova_plugin.js"></script>
+		<script type="text/javascript" src="phonegap.js"></script>
 		
 		<script type="text/javascript" src="js/jquery.validate.min.js"></script>
 		<script type="text/javascript" src="js/main.js"></script>
-		
 
 	</body>
 		
