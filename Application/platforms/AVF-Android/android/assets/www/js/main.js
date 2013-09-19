@@ -102,36 +102,52 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 
 
-//-[Alert Functions]----------------------------------------------------------------------  	
+//-[ Alert / Scope Library ]--------------------------------------------------------------  	
+    
+	var watchID = null; // set compass header
+
     function soundDismiss(){
     
     	console.log("Notification Beep");	
 
     }; // end sound dismiss  
+    
     function vibrateDismiss(){
     
     	console.log("Notification Vibrate");
 
-    }; // end sound dismiss 	
+    }; // end sound dismiss 
+	
+	function compassSuccess(direction) {
+    	$('#directions').html("You Are Heading: " + direction);
+    }; // end success function
+	    
+	function compassError() {
+       	alert('onError!');
+    }; // end error function	
  
  
   	
-//-[Native Function Variables]------------------------------------------------------------
-	var camera = function() {
-	//load camera immediately? load buttons first?	
-}; // end camera function
-	var compass = function() {
-	//check for connection? load data?	
-};// end compass function
-	var contacts = function() {
-	//do something	
-};// end contacts function  	
+//-[ Native Library - Variables ]---------------------------------------------------------
 
+	var sCompass = function() {
+	
+		var options = { frequency: 3000 };
+        watchID = navigator.compass.watchHeading(compassSuccess, compassError, options);
+	
+	};
+
+	var eCompass = function() {
+		if (watchID) {
+            navigator.compass.clearWatch(watchID);
+            watchID = null;
+        };
+	};
 
 	var connections = function() {
 		
 		alert('Verifying Connection Settings...');	
-	
+		
 		var networkState = navigator.network.connection.type;
 
     	var states = {};
@@ -163,24 +179,40 @@ document.addEventListener("deviceready", onDeviceReady, false);
        	navigator.notification.alert('You have enabled Vibration!', vibrateDismiss, 'ALERT!', 'Dismiss'); 
        	navigator.notification.vibrate(2000);
 	
-	};// end vibration notifications function  
+	};// end vibration notifications function 
+                    	
+	var loadInfo = function () {
+		$("#d-type").html(
+			"<li>Device Name: <em>" + device.name + "</em></li>" +
+			"<li>Platform Type: <em>" + device.platform + "</em></li>" +
+			"<li>Device UUID: <em>" + device.uuid + "</em></li>" +
+			"<li>Version Info: <em>" + device.version + "</em></li>"
+			); //end html edit
+	
+	};  // end phoneinfo                  	    
 	
 	
-	// ON DEVICE READY FUNCTION
+
+
+
+
+	// onDeviceReady - PhoneGap check
 	function onDeviceReady() {
 
 	console.log("PhoneGap Device Ready!");
 	
 	
-
-	// Camera Function
+	// Device Information Function
+	$("#deviceInfo").on("click", loadInfo);
+	
+	// Connections Function
 	$("#testConnection").on("click", connections);
 
-	// Compass Function
-	$("#compass").on("click", compass);
+	// Start Compass Function
+	$("#startCompass").on("click", sCompass);
 	
-	// Contacts Function
-	$("#contacts").on("click", compass);
+	// End Compass Function
+	$("#endCompass").on("click", eCompass);
 	
 	// Notification [sound] Function
 	$("#soundOn").on("click", beep);
