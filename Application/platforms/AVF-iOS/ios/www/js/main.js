@@ -72,8 +72,62 @@ $(document).on('pageinit', function(){
     
   	
   	}); // end ajax parse submit	
+  	
+
+
+  	
+	// Camera Function
+	$("#camera").on("click", camera);
+
+	// Compass Function
+	$("#compass").on("click", compass);
+	
+	// Contacts Function
+	$("#contacts").on("click", compass);
+	
+	// Notification [sound] Function
+	$("#soundOn").on("click", soundOn);
+	
+	// Notification [vibrate] Function
+	$("#vibrateOn").on("click", vibrateOn);
+	
+	
+
+var camera = function() {
+	//load camera immediately? load buttons first?	
+}; // end camera function
+var compass = function() {
+	//check for connection? load data?	
+};// end compass function
+var contacts = function() {
+	//do something	
+};// end contacts function  	
+
+
+	var soundOn = function() {
+		
+		console.log("Sound Notification");
+       	
+       	navigator.notification.alert('Message', soundDismiss, [title], [button name]); 
+        function soundDismiss(){
+        	
+        	console.log("Notification Beep");
+        	navigator.notification.beep(3);
+        }
+	
+	};// end sound notifications function  	  	
+  	var vibrateOn = function() {
+       	
+       	console.log("Vibrate Notification");
+       	navigator.notification.alert('Vibrate Enabled!'); 
+		navigator.notification.vibrate(2000);
+	
+	};// end notifications function 
+  	
+  	    
+  	
+  	
 	
 }); // end page init
-
 
 
