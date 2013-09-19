@@ -147,7 +147,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 	var connections = function() {
 		
 		alert('Verifying Connection Settings...');	
-	
+		
 		var networkState = navigator.network.connection.type;
 
     	var states = {};
