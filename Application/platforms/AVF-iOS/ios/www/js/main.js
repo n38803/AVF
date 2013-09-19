@@ -1,17 +1,19 @@
-$(document).on('pageinit', function(){
-	
-	console.log("Page Ready!");
-	
 
-	// Instagram Search Form
-	$('#instaSubmit').on("click", function(){
+// JQUERY PAGE INIT [API included]
+$(document).on('pageinit', function(){
+
+console.log("JQUERY Page Init");
+
+//-[Data APIs]----------------------------------------------------------------------------
+	
+	
+	var instaSubmit = function(){
 		
 		alert("Function Currently Unavailable - Please make another selection");
 		
-  	}); // end form submit  	
-
-	// Instagram Auto Populate by User Prompt
-	$('#instaPopulate').on("click", function(){
+  	}; // end instagram form submit	
+	
+	var instaPopulate = function(){
 		
 		alert("Populating Instagram Results...");
 		
@@ -34,20 +36,15 @@ $(document).on('pageinit', function(){
         }); // end ajax call
     	
   	
-  	}); // end ajax parse submit
-  	
-  	
-  	
-
-	// Thesaurus Search Form
-	$('#thesSubmit').on("click", function(){
+  	}; // end instagram populate 
+	
+	var theSubmit = function(){
 		
 		alert("Function Currently Unavailable - Please make another selection");
 		
-  	}); // end form submit
-
-	// Thesaurus Results by User Prompt
-	$('#thesPopulate').on("click", function(){
+  	}; // end thesaurus form submit
+	
+	var thesPopulate = function(){
 		alert("Loading Request...");
 		
 		// $('#thesList').remove();
@@ -71,11 +68,92 @@ $(document).on('pageinit', function(){
         }); // end ajax call
     
   	
-  	}); // end ajax parse submit	
-  	
+  	}; // end thesaurus populate	
 
 
+
+	// Instagram Search Form
+	$('#instaSubmit').on("click", instaSubmit);
+	
+	// Instagram Auto Populate by User Prompt
+	$('#instaPopulate').on("click", instaPopulate);
+	
+
+
+	// Thesaurus Search Form
+	$('#thesSubmit').on("click", theSubmit);
+	
+	// Thesaurus Results by User Prompt
+	$('#thesPopulate').on("click", thesPopulate);
+	
+	
+}); // End JQUERY Page Init
+
+
+
+
+
+
+
+
+
+// PhoneGap deviceready EventListener
+document.addEventListener("deviceready", onDeviceReady, false);  	
+
+
+
+//-[Alert Functions]----------------------------------------------------------------------  	
+    function soundDismiss(){
+    
+    	console.log("Notification Beep");
+    	navigator.notification.beep(3);
+
+    }; // end sound dismiss  
+    function vibrateDismiss(){
+    
+    	console.log("Notification Vibrate");
+    	navigator.notification.vibrate(2000);
+
+    }; // end sound dismiss 	
+ 
+ 
   	
+//-[Native Function Variables]------------------------------------------------------------
+	var camera = function() {
+	//load camera immediately? load buttons first?	
+}; // end camera function
+	var compass = function() {
+	//check for connection? load data?	
+};// end compass function
+	var contacts = function() {
+	//do something	
+};// end contacts function  	
+
+
+	var soundOn = function() {
+		
+		console.log("Sound Notification");
+       	
+       	navigator.notification.alert('You have enabled Sound Notifications!', soundDismiss, 'ALERT!', 'Dismiss'); 
+	
+	};// end sound notifications function 
+	
+	var vibrateOn = function() {
+		
+		console.log("Vibrate Notification");
+       	
+       	navigator.notification.alert('You have enabled Vibration!', vibrateDismiss, 'ALERT!', 'Dismiss'); 
+	
+	};// end vibration notifications function  
+	
+	
+	// ON DEVICE READY FUNCTION
+	function onDeviceReady() {
+
+	console.log("PhoneGap Device Ready!");
+	
+	
+
 	// Camera Function
 	$("#camera").on("click", camera);
 
@@ -86,48 +164,11 @@ $(document).on('pageinit', function(){
 	$("#contacts").on("click", compass);
 	
 	// Notification [sound] Function
-	$("#soundOn").on("click", soundOn);
+	$('#soundOn').on("click", soundOn);
 	
 	// Notification [vibrate] Function
 	$("#vibrateOn").on("click", vibrateOn);
 	
 	
-
-var camera = function() {
-	//load camera immediately? load buttons first?	
-}; // end camera function
-var compass = function() {
-	//check for connection? load data?	
-};// end compass function
-var contacts = function() {
-	//do something	
-};// end contacts function  	
-
-
-	var soundOn = function() {
-		
-		console.log("Sound Notification");
-       	
-       	navigator.notification.alert('Message', soundDismiss, [title], [button name]); 
-        function soundDismiss(){
-        	
-        	console.log("Notification Beep");
-        	navigator.notification.beep(3);
-        }
 	
-	};// end sound notifications function  	  	
-  	var vibrateOn = function() {
-       	
-       	console.log("Vibrate Notification");
-       	navigator.notification.alert('Vibrate Enabled!'); 
-		navigator.notification.vibrate(2000);
-	
-	};// end notifications function 
-  	
-  	    
-  	
-  	
-	
-}); // end page init
-
-
+}; // END PHONEGAP DEVICE READY
