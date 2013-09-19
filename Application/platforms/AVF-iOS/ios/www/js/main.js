@@ -102,29 +102,47 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 
 
-//-[ Alert Library ]----------------------------------------------------------------------  	
+//-[ Alert / Scope Library ]--------------------------------------------------------------  	
+    
+	var watchID = null; // set compass header
+
     function soundDismiss(){
     
     	console.log("Notification Beep");	
 
     }; // end sound dismiss  
+    
     function vibrateDismiss(){
     
     	console.log("Notification Vibrate");
 
-    }; // end sound dismiss 	
+    }; // end sound dismiss 
+	
+	function compassSuccess(direction) {
+    	$('#directions').html("You Are Heading: " + direction);
+    }; // end success function
+	    
+	function compassError() {
+       	alert('onError!');
+    }; // end error function	
  
  
   	
 //-[ Native Library - Variables ]---------------------------------------------------------
 
+	var sCompass = function() {
+	
+		var options = { frequency: 3000 };
+        watchID = navigator.compass.watchHeading(compassSuccess, compassError, options);
+	
+	};
 
-	
-	
-	
-	
-	
-	
+	var eCompass = function() {
+		if (watchID) {
+            navigator.compass.clearWatch(watchID);
+            watchID = null;
+        };
+	};
 
 	var connections = function() {
 		
@@ -190,9 +208,11 @@ document.addEventListener("deviceready", onDeviceReady, false);
 	// Connections Function
 	$("#testConnection").on("click", connections);
 
-	// Compass Function
-	$("#compassInfo").on("click", compass);
-
+	// Start Compass Function
+	$("#startCompass").on("click", sCompass);
+	
+	// End Compass Function
+	$("#endCompass").on("click", eCompass);
 	
 	// Notification [sound] Function
 	$("#soundOn").on("click", beep);
